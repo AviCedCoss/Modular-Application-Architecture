@@ -1,0 +1,76 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.versions = [
+            retrofit            : '2.9.0',
+            okhttp3             : '4.8.0',
+            hilt                : '2.38.1',
+            hiltViewModel       : '1.0.0-alpha03',
+            hiltCompiler        : '1.0.0',
+            coroutines          : '1.3.9',
+            lifecycle_extensions: '2.2.0',
+            viewmodel_ktx       : '2.3.1',
+            activity_ktx        : '1.3.1',
+            core_ktx            : '1.6.0',
+            appcompat           : '1.3.1',
+            material            : '1.4.0',
+            constraintlayout    : '2.1.1',
+            spinkit             : '1.4.0',
+            paging_version      : '3.0.1'
+
+    ]
+    ext.deps = [
+            core                : [
+                    core_ktx        : "androidx.core:core-ktx:${versions.core_ktx}",
+                    appcompat       : "androidx.appcompat:appcompat:${versions.appcompat}",
+                    material        : "com.google.android.material:material:${versions.material}",
+                    constraintlayout: "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
+            ],
+            lifecycle_extensions: [
+                    lifecycle_extensions: "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle_extensions}",
+                    viewmodel_ktx       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.viewmodel_ktx}",
+                    activity_ktx        : "androidx.activity:activity-ktx:${versions.activity_ktx}",
+
+            ],
+            retrofit2           : [
+                    retrofitKotlin   : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                    retrofitConverter: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+            ],
+            okhttp3             : [
+                    okhttp3       : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
+                    okhttp3Logging: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}"
+            ],
+            hilt                : [
+                    hiltKotlin    : "com.google.dagger:hilt-android:${versions.hilt}",
+                    hiltKotlinKapt: "com.google.dagger:hilt-android-compiler:${versions.hilt}",
+                    hiltViewModel : "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hiltViewModel}",
+                    hiltCompiler  : "androidx.hilt:hilt-compiler:${versions.hiltCompiler}"
+
+            ],
+            coroutines          : [
+                    coroutines    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
+                    coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+            ],
+            spinkit             : [
+                    spinkit: "com.github.ybq:Android-SpinKit:${versions.spinkit}"
+            ],
+            paging              : [
+                    paging    : "androidx.paging:paging-runtime:${versions.paging_version}",
+                    pagingTest: "androidx.paging:paging-common:${versions.paging_version}"
+            ]
+    ]
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.38.1"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
