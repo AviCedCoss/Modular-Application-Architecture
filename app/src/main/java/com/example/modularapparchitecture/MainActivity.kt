@@ -15,7 +15,6 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var context: Context
     private lateinit var mainActivityViewModel: MainActivityViewModel
     private lateinit var binding : ActivityMainBinding
 
@@ -24,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         binding =  DataBindingUtil.setContentView(
             this, R.layout.activity_main)
-
-        context = this@MainActivity
 
         mainActivityViewModel = ViewModelProvider(this).get(
             MainActivityViewModel::class.java
